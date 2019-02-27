@@ -11,7 +11,7 @@ app.post('/callback', function (req, res, next) {
     res.json(req.body);
 });
 
-let port = 4001;
+let port = process.env.PORT || 5000;
 app.listen(port, () => {
     console.log('Server is up and running on port number ' + port);
 });
