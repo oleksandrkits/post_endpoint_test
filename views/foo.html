@@ -2,9 +2,20 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <script src="/scripts/oauth.js"></script>
     <title>Title</title>
 </head>
 <body>
-    <h1>123</h1>
+<button onclick="myFunction()">Click me</button>
+    <script>
+        function myFunction() {
+            console.log('HEY');
+            OAuth.setOAuthdURL('https://oauth.local');
+            OAuth.initialize('uEHxIGEAYjjanMik9TFionlSN8w');
+            OAuth.popup('apple').then(apple => {
+                console.log(apple);
+            });
+        }
+    </script>
 </body>
-</html>в
+</html>

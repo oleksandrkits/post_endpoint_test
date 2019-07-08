@@ -1,12 +1,10 @@
-var app = require('express')();
+var express = require('express');
+var app = express();
 var foo = require('./routes/foo');
 const path = require('path');
-var bodyParser = require('body-parser');
 
-
-app.use(bodyParser.json()); // for parsing application/json
-app.use(bodyParser.urlencoded({
-    extended: true })); // for parsing application/x-www-form-urlencoded
+app.use('/scripts', express.static(path.join(__dirname, '/node_modules/oauthio-web/dist/')));
+app.use(express.static('public'));
 
 app.get('/', function(req, res, next) {
     res.sendFile(path.join(__dirname+'/views/foo.html'));
