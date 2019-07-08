@@ -9,12 +9,15 @@
 <button onclick="myFunction()">Click me</button>
     <script>
         function myFunction() {
-            console.log('HEY');
             OAuth.setOAuthdURL('https://oauth.local');
             OAuth.initialize('uEHxIGEAYjjanMik9TFionlSN8w');
-            OAuth.popup('apple').then(apple => {
-                console.log(apple);
-            });
+            OAuth.popup('apple')
+                .done(function(result) {
+                    console.log(result);
+                })
+                .fail(function (err) {
+                    console.log(err);
+                });
         }
     </script>
 </body>
